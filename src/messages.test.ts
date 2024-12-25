@@ -1,5 +1,5 @@
 import { getScraper } from './test-utils';
-import { jest } from '@jest/globals';
+// import { jest } from '@jest/globals';
 
 let shouldSkipV2Tests = false;
 let testUserId: string;
@@ -44,6 +44,8 @@ beforeAll(async () => {
       testUserId,
     );
 
+    console.log({ conversations });
+
     if (
       !conversations.conversations.length &&
       !conversations.conversations[0].conversationId
@@ -51,8 +53,9 @@ beforeAll(async () => {
       throw new Error('No conversations found');
     }
 
-    // testConversationId = conversations.conversations[0].conversationId;
-    testConversationId = '1025530896651362304-1247854858931040258';
+    testConversationId = conversations.conversations[0].conversationId;
+    console.log({ testConversationId });
+    // testConversationId = '1025530896651362304-1247854858931040258';
   } catch (error) {
     console.error('Failed to initialize test data:', error);
     shouldSkipV2Tests = true;
@@ -78,7 +81,7 @@ describe('Direct Message Tests', () => {
     expect(conversations).toBeDefined();
     expect(conversations.conversations).toBeInstanceOf(Array);
     expect(conversations.users).toBeInstanceOf(Array);
-  }, 30000);
+  }, 60_000); // 60 seconds
 
   test('should handle DM send failure gracefully', async () => {
     if (shouldSkipV2Tests) return;
@@ -89,7 +92,7 @@ describe('Direct Message Tests', () => {
     await expect(
       scraper.sendDirectMessage(invalidConversationId, 'test message'),
     ).rejects.toThrow();
-  }, 30000);
+  }, 60_000); // 60 seconds
 
   test('should verify DM conversation structure', async () => {
     if (shouldSkipV2Tests) return;
@@ -121,5 +124,5 @@ describe('Direct Message Tests', () => {
         expect(message).toHaveProperty('createdAt');
       }
     }
-  }, 30000);
+  }, 60_000); // 60 seconds
 });

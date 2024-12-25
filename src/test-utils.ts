@@ -31,7 +31,7 @@ export async function getScraper(
   // try to read cookies by reading cookies.json with fs and parsing
   // check if cookies.json exists
   if (!fs.existsSync('./cookies.json')) {
-    console.error(
+    console.warn(
       'cookies.json not found, using password auth - this is NOT recommended!',
     );
   } else {
