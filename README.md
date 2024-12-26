@@ -5,7 +5,7 @@ This is a modified version of [@the-convocation/twitter-scraper](https://github.
 ## Installation
 
 ```sh
-npm install agent-twitter-client
+npm install @dedevs/agent-twitter-client
 ```
 
 ## Setup

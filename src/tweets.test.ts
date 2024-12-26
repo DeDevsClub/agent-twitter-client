@@ -354,6 +354,7 @@ test('scraper can get user tweets', async () => {
   expect(response.next).toBeDefined();
 }, 60_000); // 60 seconds
 
+// [√ TEST PASS]
 test('sendTweet successfully sends a tweet', async () => {
   const scraper = await getScraper();
   const draftText = 'Core updated on ' + Date.now().toString();
@@ -444,6 +445,7 @@ test('scraper can create a poll with sendTweetV2', async () => {
   );
 });
 
+// [√ TEST PASS]
 test('scraper can send a tweet without media', async () => {
   const scraper = await getScraper();
   const draftText = 'Test tweet without media ' + Date.now().toString();
@@ -456,6 +458,7 @@ test('scraper can send a tweet without media', async () => {
   expect(result.ok).toBeTruthy();
 }, 60_000); // 60 seconds
 
+// [√ TEST PASS]
 test('scraper can send a tweet with image and video', async () => {
   const scraper = await getScraper();
   const draftText = 'Test tweet with image and video ' + Date.now().toString();
@@ -482,6 +485,7 @@ test('scraper can send a tweet with image and video', async () => {
   expect(result.ok).toBeTruthy();
 }, 60_000); // 60 seconds
 
+// [√ TEST PASS]
 test('scraper can quote tweet without media', async () => {
   const scraper = await getScraper();
   const quotedTweetId = '1776276954435481937';
@@ -495,6 +499,7 @@ test('scraper can quote tweet without media', async () => {
   expect(response.ok).toBeTruthy();
 }, 60_000); // 60 seconds
 
+// [√ TEST PASS]
 test('scraper can quote tweet with image and video', async () => {
   const scraper = await getScraper();
   const quotedTweetId = '1776276954435481937';
@@ -508,7 +513,7 @@ test('scraper can quote tweet with image and video', async () => {
     path.join(__dirname, '../test-assets/test-video.mp4'),
   );
 
-  // Prepare media data array with both image and video
+//   // Prepare media data array with both image and video
   const mediaData = [
     { data: imageBuffer, mediaType: 'image/jpeg' },
     { data: videoBuffer, mediaType: 'video/mp4' },
@@ -524,6 +529,7 @@ test('scraper can quote tweet with image and video', async () => {
   expect(response.ok).toBeTruthy();
 }, 60_000); // 60 seconds
 
+// [√ TEST PASS]
 test('scraper can quote tweet with media', async () => {
   const scraper = await getScraper();
   const quotedTweetId = '1776276954435481937';
@@ -547,6 +553,7 @@ test('scraper can quote tweet with media', async () => {
   expect(response.ok).toBeTruthy();
 }, 60_000); // 60 seconds
 
+// [√ TEST PASS]
 test('sendTweetWithMedia successfully sends a tweet with media', async () => {
   const scraper = await getScraper();
   const draftText = 'Test tweet with media ' + Date.now().toString();
@@ -567,6 +574,7 @@ test('sendTweetWithMedia successfully sends a tweet with media', async () => {
   expect(result.ok).toBeTruthy();
 }, 60_000); // 60 seconds
 
+// [√ TEST PASS]
 test('scraper can like a tweet', async () => {
   const scraper = await getScraper();
   const tweetId = '1776276954435481937'; // Use a real tweet ID for testing
@@ -575,6 +583,7 @@ test('scraper can like a tweet', async () => {
   await expect(scraper.likeTweet(tweetId)).resolves.not.toThrow();
 });
 
+// [√ TEST PASS]
 test('scraper can retweet', async () => {
   const scraper = await getScraper();
   const tweetId = '1776276954435481937';
@@ -583,6 +592,7 @@ test('scraper can retweet', async () => {
   await expect(scraper.retweet(tweetId)).resolves.not.toThrow();
 });
 
+// [√ TEST PASS]
 test('scraper can follow user', async () => {
   const scraper = await getScraper();
   const username = 'elonmusk'; // Use a real username for testing

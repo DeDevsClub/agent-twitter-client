@@ -31,9 +31,9 @@ export async function getScraper(
   // try to read cookies by reading cookies.json with fs and parsing
   // check if cookies.json exists
   if (!fs.existsSync('./cookies.json')) {
-    console.warn(
-      'cookies.json not found, using password auth - this is NOT recommended!',
-    );
+    // console.warn(
+    //   'cookies.json not found, using password auth - this is NOT recommended!',
+    // );
   } else {
     try {
       const cookiesText = fs.readFileSync('./cookies.json', 'utf8');
@@ -59,9 +59,9 @@ export async function getScraper(
     options.authMethod === 'cookies' &&
     (!cookieStrings || cookieStrings.length === 0)
   ) {
-    console.warn(
-      'TWITTER_COOKIES variable is not defined, reverting to password auth (not recommended)',
-    );
+    // console.warn(
+    //   'TWITTER_COOKIES variable is not defined, reverting to password auth (not recommended)',
+    // );
     options.authMethod = 'password';
   }
 
