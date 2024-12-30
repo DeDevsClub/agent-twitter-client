@@ -5,7 +5,7 @@
     "twitter",
     "agents"
   ],
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "main": "dist/default/cjs/index.js",
   "types": "./dist/types/index.d.ts",
@@ -25,7 +25,7 @@
   "scripts": {
     "build": "rimraf dist && rollup -c",
     "docs:generate": "typedoc --options typedoc.json",
-    "docs:deploy": "npm run docs:generate && gh-pages -d docs",
+    "docs:deploy": "yarn run docs:generate && gh-pages -d docs",
     "format": "prettier --write src/**/*.ts",
     "test": "jest"
   },
