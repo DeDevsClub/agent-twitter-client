@@ -266,7 +266,6 @@ const videoTypes = {
 };
 ```
 
-
 ### Media Upload Limitations
 - Maximum 4 images per tweet
 - Only 1 video per tweet

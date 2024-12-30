@@ -1,4 +1,4 @@
-import { Scraper } from '@dedevs/agent-twitter-client';
+import { Scraper } from '../tools/scraper/scraper';
 import dotenv from 'dotenv';
 dotenv.config();
 
